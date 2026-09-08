@@ -1824,7 +1824,7 @@ Optional Packages:
                           (default=$gcc_default_float_abi).
   --with-portssources=DIR Where to download sourcecode for external ports
   --with-bootloader=NAME  Use a specific bootloader
-  --with-iconset=NAME     Use a specific Icon-set (default=Gorilla).
+  --with-iconset=NAME     Use a specific Icon-set (default=AROSGames).
   --with-theme=NAME       Use a specific GUI Theme
   --with-mesagl=family    Which version of MesaGL to build (defaults to
                           26.0.0)
@@ -12902,8 +12902,8 @@ esac
 fi
 
 if test "$target_iconset" = "default"; then
-    aros_target_iconset="Gorilla"
-    target_iconset="default (Gorilla)"
+    aros_target_iconset="AROSGames"
+    target_iconset="default (AROSGames)"
 else
     aros_target_iconset="$target_iconset"
 fi
@@ -12923,7 +12923,7 @@ esac
 fi
 
 if test "$target_guitheme" = "default"; then
-    aros_target_guitheme="Ice"
+    aros_target_guitheme="AROSGames"
 else
     aros_target_guitheme="$target_guitheme"
 fi
