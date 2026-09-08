@@ -1,0 +1,10 @@
+# Copyright (C) 2004, The AROS Development Team. All rights reserved.
+
+include $(SRCDIR)/config/aros.cfg
+
+ICONS := Amiga Downloads-2 Downloads Linux Windows
+
+#MM- themes-AROSGamesSmall-icons-clean : themes-AROSGamesSmall-icons-drawers-clean
+#MM- themes-AROSGamesSmall-icons : themes-AROSGamesSmall-icons-drawers
+%build_icons mmake=themes-AROSGamesSmall-icons-drawers icons=$(ICONS) \
+             dir=$(AROS_CONTRIB)/Icons/AROSGames/Drawers

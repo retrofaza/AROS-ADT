@@ -1,0 +1,26 @@
+# Copyright (C) 2004-2017, The AROS Development Team. All rights reserved.
+
+include $(SRCDIR)/config/aros.cfg
+
+BASEICONS :=
+ADDITIONALICONS := Tests
+
+#MM- iconset-AROSGames-wbench-icons-aros-clean : iconset-AROSGames-wbench-icons-aros-debug-clean
+#MM- iconset-AROSGames-additional-icons-aros : iconset-AROSGames-additional-icons-aros-debug-clean
+
+#MM- iconset-AROSGames-wbench-icons-aros : iconset-AROSGames-wbench-icons-aros-debug
+#MM- iconset-AROSGames-additional-icons-aros : iconset-AROSGames-additional-icons-aros-debug
+
+%build_dual_icons mmake=iconset-AROSGames-wbench-icons-aros-debug icons=$(BASEICONS) \
+             dir=$(AROS_DEBUG)
+
+%build_dual_icons mmake=iconset-AROSGames-additional-icons-aros-debug icons=$(ADDITIONALICONS) \
+             dir=$(AROS_DEBUG)
+
+#MM- icons-developer-debug : arosgames-icons-developer-developer-debug
+%build_dual_icons mmake=arosgames-icons-developer-developer-debug icons=$(BASEICONS) \
+             dir=$(AROS_PRESETS)/Icons/AROSGames/Default/$(AROS_DIR_AROS)/$(AROS_DIR_DEVELOPER)/Debug
+
+#MM- icons-additional-developer-debug : arosgames-icons-additional-developer-debug
+%build_dual_icons mmake=arosgames-icons-additional-developer-debug icons=$(ADDITIONALICONS) \
+             dir=$(AROS_PRESETS)/Icons/AROSGames/Default/$(AROS_DIR_AROS)/$(AROS_DIR_DEVELOPER)/Debug

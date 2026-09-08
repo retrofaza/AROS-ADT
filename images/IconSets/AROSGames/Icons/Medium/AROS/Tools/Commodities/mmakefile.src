@@ -1,0 +1,16 @@
+# Copyright (C) 2004-2023, The AROS Development Team. All rights reserved.
+
+include $(SRCDIR)/config/aros.cfg
+
+ICONS := AltKeyQ ASCIITable AutoPoint Blanker ClickToFront DepthMenu Exchange \
+         FKey NoCapsLock Opaque  
+
+#MM- iconset-AROSGames-wbench-icons-aros-clean : iconset-AROSGames-wbench-icons-aros-tools-commodities-clean
+#MM- iconset-AROSGames-wbench-icons-aros : iconset-AROSGames-wbench-icons-aros-tools-commodities
+
+%build_dual_icons mmake=iconset-AROSGames-wbench-icons-aros-tools-commodities icons=$(ICONS) \
+             dir=$(AROS_TOOLS)/$(AROS_DIR_COMMODITIES)
+
+#MM- icons-wbench-tools-commodities : arosgames-icons-wbench-tools-commodities
+%build_dual_icons mmake=arosgames-icons-wbench-tools-commodities icons=$(ICONS) \
+             dir=$(AROS_PRESETS)/Icons/AROSGames/Default/$(AROS_DIR_AROS)/$(AROS_DIR_TOOLS)/$(AROS_DIR_COMMODITIES)

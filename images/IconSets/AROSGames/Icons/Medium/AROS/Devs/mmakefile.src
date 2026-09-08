@@ -1,0 +1,23 @@
+# Copyright (C) 2004-2023, The AROS Development Team. All rights reserved.
+
+include $(SRCDIR)/config/aros.cfg
+
+STORAGEICONS := DataTypes DOSDrivers Drivers Keymaps Monitors Networks Printers
+DEVSICONS := $(STORAGEICONS) Midi
+
+#MM- iconset-AROSGames-wbench-icons-aros-clean : iconset-AROSGames-wbench-icons-aros-devs-clean iconset-AROSGames-wbench-icons-aros-storage-clean
+#MM- iconset-AROSGames-wbench-icons-aros : iconset-AROSGames-wbench-icons-aros-devs iconset-AROSGames-wbench-icons-aros-storage
+
+%build_dual_icons mmake=iconset-AROSGames-wbench-icons-aros-devs icons=$(DEVSICONS) \
+             dir=$(AROS_DEVS)
+
+%build_dual_icons mmake=iconset-AROSGames-wbench-icons-aros-storage icons=$(STORAGEICONS) \
+             dir=$(AROS_STORAGE)
+
+#MM- icons-wbench-devs : arosgames-icons-wbench-devs
+%build_dual_icons mmake=arosgames-icons-wbench-devs icons=$(DEVSICONS) \
+             dir=$(AROS_PRESETS)/Icons/AROSGames/Default/$(AROS_DIR_AROS)/$(AROS_DIR_DEVS)
+
+#MM- icons-wbench-storage : arosgames-icons-wbench-storage
+%build_dual_icons mmake=arosgames-icons-wbench-storage icons=$(STORAGEICONS) \
+             dir=$(AROS_PRESETS)/Icons/AROSGames/Default/$(AROS_DIR_AROS)/$(AROS_DIR_STORAGE)

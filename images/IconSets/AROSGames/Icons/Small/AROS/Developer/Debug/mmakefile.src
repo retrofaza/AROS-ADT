@@ -1,0 +1,26 @@
+# Copyright (C) 2004-2023, The AROS Development Team. All rights reserved.
+
+include $(SRCDIR)/config/aros.cfg
+
+BASEICONS := Sashimi
+ADDITIONALICONS := Bifteck Hardware Tests 
+
+#MM- iconset-AROSGamesSmall-wbench-icons-aros-clean : iconset-AROSGamesSmall-wbench-icons-aros-debug-clean
+#MM- iconset-AROSGamesSmall-additional-icons-aros : iconset-AROSGamesSmall-additional-icons-aros-debug-clean
+
+#MM- iconset-AROSGamesSmall-wbench-icons-aros : iconset-AROSGamesSmall-wbench-icons-aros-debug
+#MM- iconset-AROSGamesSmall-additional-icons-aros : iconset-AROSGamesSmall-additional-icons-aros-debug
+
+%build_icons mmake=iconset-AROSGamesSmall-wbench-icons-aros-debug icons=$(BASEICONS) \
+             dir=$(AROS_DEBUG)
+
+%build_icons mmake=iconset-AROSGamesSmall-additional-icons-aros-debug icons=$(ADDITIONALICONS) \
+             dir=$(AROS_DEBUG)
+
+#MM- icons-developer-debug : arosgamessmall-icons-developer-developer-debug
+%build_icons mmake=arosgamessmall-icons-developer-developer-debug icons=$(BASEICONS) \
+             dir=$(AROS_PRESETS)/Icons/AROSGames/Small/$(AROS_DIR_AROS)/$(AROS_DIR_DEVELOPER)/Debug
+
+#MM- icons-additional-developer-debug : arosgamessmall-icons-additional-developer-debug
+%build_icons mmake=arosgamessmall-icons-additional-developer-debug icons=$(ADDITIONALICONS) \
+             dir=$(AROS_PRESETS)/Icons/AROSGames/Small/$(AROS_DIR_AROS)/$(AROS_DIR_DEVELOPER)/Debug

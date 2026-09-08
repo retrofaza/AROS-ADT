@@ -1,0 +1,29 @@
+# Copyright (C) 2004-2023, The AROS Development Team. All rights reserved.
+
+include $(SRCDIR)/config/aros.cfg
+
+BASEICONS := Developer Devs Fonts \
+         Locale Prefs System \
+         Tools Utilities
+ADDITIONALICONS := Demos \
+         Libs Storage \
+         WBStartup \
+         Rexxc
+
+#MM- iconset-AROSGamesSmall-wbench-icons-clean : iconset-AROSGamesSmall-wbench-icons-aros-clean iconset-AROSGamesSmall-additional-icons-aros-clean
+#MM- iconset-AROSGamesSmall-wbench-icons : iconset-AROSGamesSmall-wbench-icons-aros
+#MM- iconset-AROSGamesSmall-wbench-icons : iconset-AROSGamesSmall-additional-icons-aros
+
+%build_icons mmake=iconset-AROSGamesSmall-wbench-icons-aros icons=$(BASEICONS) dir=$(AROSDIR)
+
+%build_icons mmake=iconset-AROSGamesSmall-additional-icons-aros icons=$(ADDITIONALICONS) dir=$(AROSDIR)
+
+#MM- icons-wbench : arosgamessmall-icons-wbench
+%build_icons mmake=arosgamessmall-icons-wbench icons=$(BASEICONS) dir=$(AROS_PRESETS)/Icons/AROSGames/Small/$(AROS_DIR_AROS)
+
+#MM- icons-additional-wbench : arosgamessmall-icons-additional-wbench
+%build_icons mmake=arosgamessmall-icons-additional-wbench icons=$(ADDITIONALICONS) dir=$(AROS_PRESETS)/Icons/AROSGames/Small/$(AROS_DIR_AROS)
+
+#MM
+iconset-AROSGamesSmall-wbench-icons-aros-livecd :  
+	@$(ILBMTOICON) $(SRCDIR)/$(CURDIR)/LiveCD.info.src $(SRCDIR)/$(CURDIR)/LiveCD.png $(AROSDIR)/disk.info

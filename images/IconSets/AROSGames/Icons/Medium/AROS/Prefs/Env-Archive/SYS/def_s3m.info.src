@@ -1,0 +1,3 @@
+TYPE = PROJECT
+DEFAULTTOOL = Extras:MultiMedia/Audio/FastTracker2/ft2
+TOOLTYPE = CLI

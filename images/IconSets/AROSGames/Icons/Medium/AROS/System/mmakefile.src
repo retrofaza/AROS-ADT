@@ -1,0 +1,25 @@
+# Copyright (C) 2004-2023, The AROS Development Team. All rights reserved.
+
+include $(SRCDIR)/config/aros.cfg
+
+BASEICONS := About DiskImageGUI FixFonts Format FTManager WorkBook Shell
+ADDITIONALICONS := SysMon Snoopy Find VMM
+
+#MM- iconset-AROSGames-wbench-icons-aros-clean : iconset-AROSGames-wbench-icons-aros-system-clean
+#MM- iconset-AROSGames-additional-icons-aros-clean : iconset-AROSGames-additional-icons-aros-system-clean
+#MM- iconset-AROSGames-wbench-icons-aros : iconset-AROSGames-wbench-icons-aros-system
+#MM- iconset-AROSGames-additional-icons-aros : iconset-AROSGames-additional-icons-aros-system
+
+%build_dual_icons mmake=iconset-AROSGames-wbench-icons-aros-system icons=$(BASEICONS) \
+             dir=$(AROS_SYSTEM)
+
+%build_dual_icons mmake=iconset-AROSGames-additional-icons-aros-system icons=$(ADDITIONALICONS) \
+             dir=$(AROS_SYSTEM)
+
+#MM- icons-wbench-system : arosgames-icons-wbench-system
+%build_dual_icons mmake=arosgames-icons-wbench-system icons=$(BASEICONS) \
+             dir=$(AROS_PRESETS)/Icons/AROSGames/Default/$(AROS_DIR_AROS)/$(AROS_DIR_SYSTEM)
+
+#MM- icons-additional-wbench-system : arosgames-icons-additional-wbench-system
+%build_dual_icons mmake=arosgames-icons-additional-wbench-system icons=$(ADDITIONALICONS) \
+             dir=$(AROS_PRESETS)/Icons/AROSGames/Default/$(AROS_DIR_AROS)/$(AROS_DIR_SYSTEM)

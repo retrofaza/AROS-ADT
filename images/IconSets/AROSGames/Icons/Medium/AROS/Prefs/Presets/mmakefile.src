@@ -1,0 +1,15 @@
+# Copyright (C) 2004-2023, The AROS Development Team. All rights reserved.
+
+include $(SRCDIR)/config/aros.cfg
+
+ICONS := Patterns Themes Wallpapers
+
+#MM- iconset-AROSGames-wbench-icons-aros-clean : iconset-AROSGames-wbench-icons-aros-prefs-presets-clean
+#MM- iconset-AROSGames-wbench-icons-aros : iconset-AROSGames-wbench-icons-aros-prefs-presets
+
+%build_dual_icons mmake=iconset-AROSGames-wbench-icons-aros-prefs-presets icons=$(ICONS) \
+             dir=$(AROS_PRESETS)
+
+#MM- icons-wbench-prefs-presets : arosgames-icons-wbench-prefs-presets
+%build_dual_icons mmake=arosgames-icons-wbench-prefs-presets icons=$(ICONS) \
+             dir=$(AROS_PRESETS)/Icons/AROSGames/Default/$(AROS_DIR_AROS)/$(AROS_DIR_PREFS)/$(AROS_DIR_PRESETS)

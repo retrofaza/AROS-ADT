@@ -1,0 +1,11 @@
+# Copyright (C) 2004, The AROS Development Team. All rights reserved.
+
+include $(SRCDIR)/config/aros.cfg
+
+ICONS := Amiga Linux Networked_Amiga Networked_Linux Networked_Windows Generic \
+         MacOS Networked_Generic Networked_MacOS Windows
+
+#MM- themes-arosgames-icons-clean : themes-arosgames-icons-computers-clean
+#MM- themes-arosgames-icons : themes-arosgames-icons-computers
+%build_icons mmake=themes-arosgames-icons-computers icons=$(ICONS) \
+             dir=$(AROS_CONTRIB)/Icons/AROSGames/Computers

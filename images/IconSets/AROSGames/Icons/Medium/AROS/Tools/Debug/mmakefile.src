@@ -1,0 +1,18 @@
+# Copyright (C) 2004-2017, The AROS Development Team. All rights reserved.
+
+include $(SRCDIR)/config/aros.cfg
+
+BASEICONS := Bifteck Sashimi
+ADDITIONALICONS :=
+
+#MM- iconset-AROSGames-wbench-icons-aros-clean : iconset-AROSGames-wbench-icons-aros-tools-debug-clean
+#MM- iconset-AROSGames-additional-icons-aros : iconset-AROSGames-additional-icons-aros-tools-debug-clean
+
+#MM- iconset-AROSGames-wbench-icons-aros : iconset-AROSGames-wbench-icons-aros-tools-debug
+#MM- iconset-AROSGames-additional-icons-aros : iconset-AROSGames-additional-icons-aros-tools-debug
+
+%build_dual_icons mmake=iconset-AROSGames-wbench-icons-aros-tools-debug icons=$(BASEICONS) \
+             dir=$(AROS_TOOLS)/Debug
+
+%build_dual_icons mmake=iconset-AROSGames-additional-icons-aros-tools-debug icons=$(ADDITIONALICONS) \
+             dir=$(AROS_TOOLS)/Debug

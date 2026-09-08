@@ -1,0 +1,2 @@
+DEFAULTTOOL = Extras:Emu/VICE/x64sc
+TOOLTYPE = CLI

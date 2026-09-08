@@ -1,0 +1,46 @@
+# Copyright (C) 2010-2026, The AROS Development Team. All rights reserved.
+
+include $(SRCDIR)/config/aros.cfg
+
+STORAGEICONS := Wrapper ATI
+PCDEVSICONS    := VMWare IntelGMA NVidia
+ifneq ($(AROS_TARGET_ARCH),pc)
+PCDEVSDIR := $(AROSDIR)/Storage/Monitors
+else
+PCDEVSDIR := $(AROS_DEVS)/Monitors
+endif
+AMIGADEVSICONS    := SAGA
+ifneq ($(AROS_TARGET_ARCH),amiga)
+AMIGADEVSDIR := $(AROSDIR)/Storage/Monitors
+else
+AMIGADEVSDIR := $(AROS_DEVS)/Monitors
+endif
+
+DISKIMAGESRCS := Wrapper_1.png Wrapper_2.png
+
+#MM- iconset-AROSGames-wbench-icons-aros-clean : iconset-AROSGames-wbench-icons-devs-monitors-clean iconset-AROSGames-wbench-icons-storage-monitors-clean
+#MM- iconset-AROSGames-wbench-icons-aros : iconset-AROSGames-wbench-icons-devs-monitors iconset-AROSGames-wbench-icons-storage-monitors
+
+#MM- iconset-AROSGames-wbench-icons-devs-monitors : iconset-AROSGames-wbench-icons-devs-monitors-pc iconset-AROSGames-wbench-icons-devs-monitors-amiga
+#MM- iconset-AROSGames-wbench-icons-devs-monitors-clean : iconset-AROSGames-wbench-icons-devs-monitors-pc-clean iconset-AROSGames-wbench-icons-devs-monitors-amiga-clean
+
+%build_icons mmake=iconset-AROSGames-wbench-icons-devs-monitors-pc icons=$(PCDEVSICONS) image=$(DISKIMAGESRCS) \
+             dir=$(PCDEVSDIR)
+
+%build_icons mmake=iconset-AROSGames-wbench-icons-devs-monitors-amiga icons=$(AMIGADEVSICONS) image=$(DISKIMAGESRCS) \
+             dir=$(AMIGADEVSDIR)
+
+%build_icons mmake=iconset-AROSGames-wbench-icons-storage-monitors icons=$(STORAGEICONS) image=$(DISKIMAGESRCS) \
+             dir=$(AROS_STORAGE)/Monitors
+
+#MM- icons-wbench-devs-monitors : arosgames-icons-wbench-devs-monitors-pc
+%build_icons mmake=arosgames-icons-wbench-devs-monitors-pc icons=$(PCDEVSICONS) image=$(DISKIMAGESRCS) \
+             dir=$(AROS_PRESETS)/Icons/AROSGames/Default/$(AROS_DIR_AROS)/$(AROS_DIR_STORAGE)/Monitors
+
+#MM- icons-wbench-devs-monitors : arosgames-icons-wbench-devs-monitors-amiga
+%build_icons mmake=arosgames-icons-wbench-devs-monitors-amiga icons=$(AMIGADEVSICONS) image=$(DISKIMAGESRCS) \
+             dir=$(AROS_PRESETS)/Icons/AROSGames/Default/$(AROS_DIR_AROS)/$(AROS_DIR_STORAGE)/Monitors
+
+#MM- icons-wbench-devs-monitors : arosgames-icons-wbench-devs-monitors
+%build_icons mmake=arosgames-icons-wbench-devs-monitors icons=$(STORAGEICONS) image=$(DISKIMAGESRCS) \
+             dir=$(AROS_PRESETS)/Icons/AROSGames/Default/$(AROS_DIR_AROS)/$(AROS_DIR_STORAGE)/Monitors

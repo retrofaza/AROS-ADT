@@ -1,0 +1,25 @@
+# Copyright (C) 2004-2023, The AROS Development Team. All rights reserved.
+
+include $(SRCDIR)/config/aros.cfg
+
+BASEICONS := Debug
+ADDITIONALICONS := Include Lib
+
+#MM- iconset-AROSGamesSmall-wbench-icons-aros-clean : iconset-AROSGamesSmall-wbench-icons-aros-developer-clean
+#MM- iconset-AROSGamesSmall-additional-icons-aros-clean : iconset-AROSGamesSmall-additional-icons-aros-developer-clean
+#MM- iconset-AROSGamesSmall-wbench-icons-aros : iconset-AROSGamesSmall-wbench-icons-aros-developer
+#MM- iconset-AROSGamesSmall-additional-icons-aros : iconset-AROSGamesSmall-additional-icons-aros-developer
+
+%build_icons mmake=iconset-AROSGamesSmall-wbench-icons-aros-developer icons=$(BASEICONS) \
+             dir=$(AROS_DEVELOPER)
+
+%build_icons mmake=iconset-AROSGamesSmall-additional-icons-aros-developer icons=$(ADDITIONALICONS) \
+             dir=$(AROS_DEVELOPER)
+
+#MM- icons-developer : arosgamessmall-icons-developer
+%build_icons mmake=arosgamessmall-icons-developer icons=$(BASEICONS) \
+             dir=$(AROS_PRESETS)/Icons/AROSGames/Small/$(AROS_DIR_AROS)/$(AROS_DIR_DEVELOPER)
+
+#MM- icons-additional-developer : arosgamessmall-icons-additional-developer
+%build_icons mmake=arosgamessmall-icons-additional-developer icons=$(ADDITIONALICONS) \
+             dir=$(AROS_PRESETS)/Icons/AROSGames/Small/$(AROS_DIR_AROS)/$(AROS_DIR_DEVELOPER)

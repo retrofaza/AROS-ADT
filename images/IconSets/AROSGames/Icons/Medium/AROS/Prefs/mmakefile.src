@@ -1,0 +1,27 @@
+# Copyright (C) 2004-2023, The AROS Development Team. All rights reserved.
+
+include $(SRCDIR)/config/aros.cfg
+
+BASEICONS := Time Locale Serial Presets Input IControl Font ScreenMode Palette Pointer Printer
+ADDITIONALICONS := AHI Asl Appearance Boot  \
+ ReqTools Wanderer Zune Editor Trackdisk PSI Network Trident \
+ OpenURL BoingIconBar
+
+#MM- iconset-AROSGames-wbench-icons-aros-clean : iconset-AROSGames-wbench-icons-aros-prefs-clean
+#MM- iconset-AROSGames-additional-icons-aros-clean : iconset-AROSGames-additional-icons-aros-prefs-clean
+#MM- iconset-AROSGames-wbench-icons-aros : iconset-AROSGames-wbench-icons-aros-prefs
+#MM- iconset-AROSGames-additional-icons-aros : iconset-AROSGames-additional-icons-aros-prefs
+
+%build_dual_icons mmake=iconset-AROSGames-wbench-icons-aros-prefs icons=$(BASEICONS) \
+             dir=$(AROS_PREFS)
+
+%build_dual_icons mmake=iconset-AROSGames-additional-icons-aros-prefs icons=$(ADDITIONALICONS) \
+             dir=$(AROS_PREFS)
+
+#MM- icons-wbench-prefs : arosgames-icons-wbench-prefs
+%build_dual_icons mmake=arosgames-icons-wbench-prefs icons=$(BASEICONS) \
+             dir=$(AROS_PRESETS)/Icons/AROSGames/Default/$(AROS_DIR_AROS)/$(AROS_DIR_PREFS)
+
+#MM- icons-additional-wbench-prefs : arosgames-icons-additional-wbench-prefs
+%build_dual_icons mmake=arosgames-icons-additional-wbench-prefs icons=$(ADDITIONALICONS) \
+             dir=$(AROS_PRESETS)/Icons/AROSGames/Default/$(AROS_DIR_AROS)/$(AROS_DIR_PREFS)

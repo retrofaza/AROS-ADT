@@ -1,0 +1,15 @@
+# Copyright (C) 2004-2023, The AROS Development Team. All rights reserved.
+
+include $(SRCDIR)/config/aros.cfg
+
+ICONS := Help Catalogs Flags Countries Languages
+
+#MM- iconset-AROSGames-wbench-icons-aros-clean : iconset-AROSGames-wbench-icons-aros-locale-clean
+#MM- iconset-AROSGames-wbench-icons-aros : iconset-AROSGames-wbench-icons-aros-locale
+
+%build_dual_icons mmake=iconset-AROSGames-wbench-icons-aros-locale icons=$(ICONS) \
+             dir=$(AROS_LOCALE)
+
+#MM- icons-wbench-locale : arosgames-icons-wbench-locale
+%build_dual_icons mmake=arosgames-icons-wbench-locale icons=$(ICONS) \
+             dir=$(AROS_PRESETS)/Icons/AROSGames/Default/$(AROS_DIR_AROS)/$(AROS_DIR_LOCALE)

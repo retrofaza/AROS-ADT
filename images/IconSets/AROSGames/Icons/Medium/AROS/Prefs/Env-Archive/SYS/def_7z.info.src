@@ -1,0 +1,3 @@
+TYPE = PROJECT
+DEFAULTTOOL = Extras:Utilities/Archive/ZuneARC/ZuneARC
+STACK = 8192

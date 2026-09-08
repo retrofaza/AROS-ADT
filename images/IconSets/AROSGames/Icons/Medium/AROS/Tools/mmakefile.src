@@ -1,0 +1,26 @@
+# Copyright (C) 2004-2025, The AROS Development Team. All rights reserved.
+
+include $(SRCDIR)/config/aros.cfg
+
+BASEICONS := Calculator HDToolBox InstallAROS Editor Commodities \
+         ShowConfig KeyShow InitPrinter PrintFiles GraphicDump Debug
+ADDITIONALICONS := WiMP ScreenGrabber SysExplorer BoingIconBar Hardware QuickPart
+
+#MM- iconset-AROSGames-wbench-icons-aros-clean : iconset-AROSGames-wbench-icons-aros-tools-clean
+#MM- iconset-AROSGames-additional-icons-aros-clean : iconset-AROSGames-additional-icons-aros-tools-clean
+#MM- iconset-AROSGames-wbench-icons-aros : iconset-AROSGames-wbench-icons-aros-tools
+#MM- iconset-AROSGames-additional-icons-aros : iconset-AROSGames-additional-icons-aros-tools
+
+%build_dual_icons mmake=iconset-AROSGames-wbench-icons-aros-tools icons=$(BASEICONS) \
+             dir=$(AROS_TOOLS)
+
+%build_dual_icons mmake=iconset-AROSGames-additional-icons-aros-tools icons=$(ADDITIONALICONS) \
+             dir=$(AROS_TOOLS)
+
+#MM- icons-wbench-tools : arosgames-icons-wbench-tools
+%build_dual_icons mmake=arosgames-icons-wbench-tools icons=$(BASEICONS) \
+             dir=$(AROS_PRESETS)/Icons/AROSGames/Default/$(AROS_DIR_AROS)/$(AROS_DIR_TOOLS)
+
+#MM- icons-additional-wbench-tools : arosgames-icons-additional-wbench-tools
+%build_dual_icons mmake=arosgames-icons-additional-wbench-tools icons=$(ADDITIONALICONS) \
+             dir=$(AROS_PRESETS)/Icons/AROSGames/Default/$(AROS_DIR_AROS)/$(AROS_DIR_TOOLS)
