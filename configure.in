@@ -3080,10 +3080,10 @@ fi
 AC_MSG_RESULT($target_bootloader)
 
 AC_MSG_CHECKING([which icon-set to use])
-AC_ARG_WITH(iconset,AS_HELP_STRING([--with-iconset=NAME],[Use a specific Icon-set (default=Gorilla).]),target_iconset=$withval,target_iconset="default")
+AC_ARG_WITH(iconset,AS_HELP_STRING([--with-iconset=NAME],[Use a specific Icon-set (default=AROSGames).]),target_iconset=$withval,target_iconset="default")
 if test "$target_iconset" = "default"; then
-    aros_target_iconset="Gorilla"
-    target_iconset="default (Gorilla)"
+    aros_target_iconset="AROSGames"
+    target_iconset="default (AROSGames)"
 else
     aros_target_iconset="$target_iconset"
 fi
@@ -3092,7 +3092,7 @@ AC_MSG_RESULT($target_iconset)
 AC_MSG_CHECKING([which GUI Theme to use])
 AC_ARG_WITH(theme,AS_HELP_STRING([--with-theme=NAME],[Use a specific GUI Theme]),target_guitheme=$withval,target_guitheme="default")
 if test "$target_guitheme" = "default"; then
-    aros_target_guitheme="Ice"
+    aros_target_guitheme="AROSGames"
 else
     aros_target_guitheme="$target_guitheme"
 fi
