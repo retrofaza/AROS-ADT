@@ -3147,6 +3147,33 @@ endif
 %end
 #-----------------------------------------------------------------------------
 
+#-----------------------------------------------------------------------------
+# Build dual state icons (batch version).
+# Like build_icons but uses %_1.png and %_2.png for dual-state icons.
+#-----------------------------------------------------------------------------
+
+%define build_dual_icons mmake=/A icons=/A dir=/A srcdir="$(SRCDIR)/$(CURDIR)"
+
+BD_OBJS := $(addprefix  %(dir)/, $(addsuffix .info,%(icons)))
+
+#MM
+%(mmake) : $(BD_OBJS)
+
+%(dir)/%.info : %(srcdir)/%.info.src %(srcdir)/%_1.png %(srcdir)/%_2.png
+	$(Q)$(ECHO) "Creating   $(subst $(TARGETDIR)/,,$@)..."
+	$(Q)$(ILBMTOICON) $+ $@
+
+%rule_makedirs dirs="%(dir)" setuptarget="$(BD_OBJS)"
+
+%(mmake)-clean : FILES := $(BD_OBJS)
+#MM
+%(mmake)-clean ::
+	$(Q)$(RM) $(FILES)
+
+.PHONY: %(mmake) %(mmake)-clean
+
+%end
+#-----------------------------------------------------------------------------
 
 #-----------------------------------------------------------------------------
 # Build dual state icon.
